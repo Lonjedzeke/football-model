@@ -31,6 +31,21 @@ Right-click each link → "Save Link As" → save into the `data/` folder next
 to `model.py`. The app automatically loads and merges every file matching
 `data/e0_*.csv`.
 
+### Automatic updates
+
+`update_data.py` downloads the current season's results for all five
+leagues (E0, D1, F1, I1, SP1) into `data/`:
+
+```bash
+python update_data.py
+```
+
+A GitHub Actions workflow (`.github/workflows/update-data.yml`) runs it
+every day at 06:00 UTC, so weekend and midweek results are both picked
+up, and commits any new matches. Streamlit Cloud redeploys automatically
+when the repo changes. You can also trigger it by hand from the repo's
+**Actions** tab → "Update match data" → **Run workflow**.
+
 ## 3. Run
 
 ```bash
